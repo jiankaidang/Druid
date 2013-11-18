@@ -1,0 +1,12 @@
+{
+    "queryType": "groupBy",
+    "dataSource": "twitterstream",
+    "granularity": "all",
+    "dimensions": ["htags"],
+    "orderBy": {"type":"default", "columns":[{"dimension": "tweets", "direction":"DESCENDING"}], "limit":5},
+    "aggregations":[
+      { "type": "longSum", "fieldName": "tweets", "name": "tweets"}
+    ],
+    "filter": {"type": "selector", "dimension": "lang", "value": "en" },
+    "intervals":["2012-10-01T00:00/2020-01-01T00"]
+}
