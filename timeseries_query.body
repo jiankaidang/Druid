@@ -1,0 +1,10 @@
+{
+  "queryType":"timeseries",
+  "dataSource":"twitterstream",
+  "intervals":["2010-01-01/2020-01-01"],
+  "granularity":"all",
+  "aggregations":[
+      { "type": "count", "name": "rows"},
+      { "type": "doubleSum", "fieldName": "tweets", "name": "tweets"}
+  ]
+}
