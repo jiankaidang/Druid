@@ -1,0 +1,16 @@
+{
+  "queryType": "groupBy",
+  "dataSource": "wikipedia",
+  "granularity": "all",
+  "dimensions": [ "page" ],
+  "orderBy": {
+     "type": "default",
+     "columns": [ { "dimension": "edit_count", "direction": "DESCENDING" } ],
+     "limit": 10
+  },
+  "aggregations": [
+    {"type": "longSum", "fieldName": "count", "name": "edit_count"}
+  ],
+  "filter": { "type": "selector", "dimension": "country", "value": "United States" },
+  "intervals": ["2012-10-01T00:00/2020-01-01T00"]
+}
