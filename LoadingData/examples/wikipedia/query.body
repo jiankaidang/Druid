@@ -1,27 +1,11 @@
 {
-   "queryType":"groupBy",
-   "dataSource":"wikipedia",
-   "granularity":"minute",
-   "dimensions":[
-      "page"
-   ],
-   "aggregations":[
-      {
-         "type":"count",
-         "name":"rows"
-      },
-      {
-         "type":"longSum",
-         "fieldName":"count",
-         "name":"edit_count"
-      }
-   ],
-   "filter":{
-      "type":"selector",
-      "dimension":"namespace",
-      "value":"article"
-   },
-   "intervals":[
-      "2013-06-01T00:00/2020-01-01T00"
-   ]
+    "queryType": "groupBy",
+    "dataSource": "wikipedia",
+    "granularity": "all",
+    "filter": { "type": "selector", "dimension": "namespace", "value": "article" },
+    "aggregations": [
+        {"type": "longSum", "name": "edit_count", "fieldName": "count"},
+        {"type": "doubleSum", "name": "chars_added", "fieldName": "added"}
+    ],
+    "intervals": ["2010-01-01T00:00/2020-01-01T00"]
 }
